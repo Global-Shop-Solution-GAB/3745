@@ -1,0 +1,1897 @@
+Program.Sub.ScreenSU.Start
+Gui.SS_Form1..create
+Gui.SS_Form1..caption("GAB BOM/Router Explosion with Status")
+Gui.SS_Form1..size(16365,11820)
+Gui.SS_Form1..minx(0)
+Gui.SS_Form1..miny(0)
+Gui.SS_Form1..position(0,0)
+Gui.SS_Form1..event(UnLoad,SS_Form1_Unload)
+Gui.SS_Form1..forecolor(0)
+Gui.SS_Form1..fontstyle(,,)
+Gui.SS_Form1..BackColor(-2147483633)
+Gui.SS_Form1..maxbutton(False)
+Gui.SS_Form1..minbutton(False)
+Gui.SS_Form1..mousepointer(0)
+Gui.SS_Form1..sizeable(False)
+Gui.SS_Form1.chkBom.create(checkbox)
+Gui.SS_Form1.chkBom.caption("Bom")
+Gui.SS_Form1.chkBom.size(945,300)
+Gui.SS_Form1.chkBom.position(105,315)
+Gui.SS_Form1.chkBom.event(Click,chkBom_Click)
+Gui.SS_Form1.chkBom.defaultvalue("")
+Gui.SS_Form1.chkRouter.create(checkbox)
+Gui.SS_Form1.chkRouter.caption("Router")
+Gui.SS_Form1.chkRouter.size(1050,300)
+Gui.SS_Form1.chkRouter.position(105,630)
+Gui.SS_Form1.chkRouter.event(Click,chkRouter_Click)
+Gui.SS_Form1.chkRouter.defaultvalue("")
+Gui.SS_Form1.chkRouter.tabstop(True)
+Gui.SS_Form1.chkRouter.tabindex(1)
+Gui.SS_Form1.lblPart.create(label,"Part",True,1800,195,1,1260,125,True,0,Arial,8,-2147483633,0)
+Gui.SS_Form1.lblPart.defaultvalue("")
+Gui.SS_Form1.txtPart.create(textbox,"",True,1800,330,0,1260,315,True,0,Arial,8,16777215,1)
+Gui.SS_Form1.txtPart.event(GotFocus,txtPart_GotFocus)
+Gui.SS_Form1.txtPart.maxLength(17)
+Gui.SS_Form1.txtPart.event(LostFocus,txtPart_LostFocus)
+Gui.SS_Form1.txtPart.defaultvalue("")
+Gui.SS_Form1.txtPart.controlgroup(1)
+Gui.SS_Form1.txtPart.tabstop(True)
+Gui.SS_Form1.txtPart.tabindex(3)
+Gui.SS_Form1.lbl_txtRev.create(label,"Rev",True,600,195,1,3045,105,True,0,Arial,8,-2147483633,0)
+Gui.SS_Form1.lbl_txtRev.defaultvalue("")
+Gui.SS_Form1.txtRev.create(textbox,"",True,495,330,0,3045,315,True,0,Arial,8,16777215,1)
+Gui.SS_Form1.txtRev.event(GotFocus,txtRev_GotFocus)
+Gui.SS_Form1.txtRev.maxLength(3)
+Gui.SS_Form1.txtRev.event(LostFocus,txtRev_LostFocus)
+Gui.SS_Form1.txtRev.defaultvalue("")
+Gui.SS_Form1.txtRev.controlgroup(1)
+Gui.SS_Form1.txtRev.tabstop(True)
+Gui.SS_Form1.txtRev.tabindex(5)
+Gui.SS_Form1.cmd_txtRev.create(button)
+Gui.SS_Form1.cmd_txtRev.caption("^")
+Gui.SS_Form1.cmd_txtRev.size(330,330)
+Gui.SS_Form1.cmd_txtRev.position(3675,315)
+Gui.SS_Form1.cmd_txtRev.event(Click,cmd_txtRev_Click)
+Gui.SS_Form1.cmd_txtRev.defaultvalue("")
+Gui.SS_Form1.cmd_txtRev.tabstop(True)
+Gui.SS_Form1.cmd_txtRev.tabindex(6)
+Gui.SS_Form1.lbl_txtDesc.create(label,"Description",True,1800,195,1,4200,120,True,0,Arial,8,-2147483633,0)
+Gui.SS_Form1.lbl_txtDesc.defaultvalue("")
+Gui.SS_Form1.txtDesc.create(textbox,"",True,3150,330,0,4200,315,True,0,Arial,8,16777215,1)
+Gui.SS_Form1.txtDesc.defaultvalue("")
+Gui.SS_Form1.txtDesc.controlgroup(1)
+Gui.SS_Form1.txtDesc.tabstop(True)
+Gui.SS_Form1.txtDesc.tabindex(8)
+Gui.SS_Form1.lbl_txtQty.create(label,"Quantity",True,1080,195,1,7545,105,True,0,Arial,8,-2147483633,0)
+Gui.SS_Form1.lbl_txtQty.defaultvalue("")
+Gui.SS_Form1.txtQty.create(textbox,"",True,855,330,0,7545,315,True,0,Arial,8,16777215,1)
+Gui.SS_Form1.txtQty.event(Change,txtqty_change)
+Gui.SS_Form1.txtQty.defaultvalue("")
+Gui.SS_Form1.txtQty.tabstop(True)
+Gui.SS_Form1.txtQty.tabindex(10)
+Gui.SS_Form1.lbl_lvwLoc.create(label,"Location",True,1800,195,1,8565,105,True,0,Arial,8,-2147483633,0)
+Gui.SS_Form1.lbl_lvwLoc.defaultvalue("")
+Gui.SS_Form1.lbl_lvwBin.create(label,"Bin",True,1800,200,1,12300,105,True,0,Arial,8,-2147483633,0)
+Gui.SS_Form1.lbl_lvwBin.defaultvalue("")
+Gui.SS_Form1.chkAllLoc.create(checkbox)
+Gui.SS_Form1.chkAllLoc.caption("All Locations")
+Gui.SS_Form1.chkAllLoc.size(1800,300)
+Gui.SS_Form1.chkAllLoc.position(8565,2730)
+Gui.SS_Form1.chkAllLoc.event(Click,chkAllLoc_Click)
+Gui.SS_Form1.chkAllLoc.defaultvalue("")
+Gui.SS_Form1.chkAllLoc.tabstop(True)
+Gui.SS_Form1.chkAllLoc.tabindex(15)
+Gui.SS_Form1.chkAllBins.create(checkbox)
+Gui.SS_Form1.chkAllBins.caption("All Bins")
+Gui.SS_Form1.chkAllBins.size(1800,300)
+Gui.SS_Form1.chkAllBins.position(12300,2730)
+Gui.SS_Form1.chkAllBins.event(Click,chkAllBins_Click)
+Gui.SS_Form1.chkAllBins.defaultvalue("")
+Gui.SS_Form1.chkAllBins.tabstop(True)
+Gui.SS_Form1.chkAllBins.tabindex(16)
+Gui.SS_Form1.cmdProcess.create(button)
+Gui.SS_Form1.cmdProcess.caption("Process")
+Gui.SS_Form1.cmdProcess.size(1005,360)
+Gui.SS_Form1.cmdProcess.position(100,1140)
+Gui.SS_Form1.cmdProcess.event(Click,cmdProcess_Click)
+Gui.SS_Form1.cmdProcess.defaultvalue("")
+Gui.SS_Form1.cmdProcess.tabstop(True)
+Gui.SS_Form1.cmdProcess.tabindex(17)
+Gui.SS_Form1.cmdExport.create(button)
+Gui.SS_Form1.cmdExport.caption("Export")
+Gui.SS_Form1.cmdExport.size(1005,360)
+Gui.SS_Form1.cmdExport.position(105,10680)
+Gui.SS_Form1.cmdExport.event(Click,cmdExport_Click)
+Gui.SS_Form1.cmdExport.defaultvalue("")
+Gui.SS_Form1.cmdExport.tabstop(True)
+Gui.SS_Form1.cmdExport.tabindex(18)
+Gui.SS_Form1.fgBin.create(gsflexgrid)
+Gui.SS_Form1.fgBin.size(3600,2250)
+Gui.SS_Form1.fgBin.position(12300,315)
+Gui.SS_Form1.fgBin.Event(CheckClick,fgBin_CheckClick)
+Gui.SS_Form1.fgLoc.create(gsflexgrid)
+Gui.SS_Form1.fgLoc.size(3600,2250)
+Gui.SS_Form1.fgLoc.position(8565,315)
+Gui.SS_Form1.fgLoc.event(CheckClick,fgLoc_CheckClick)
+Gui.SS_Form1.fgDataView.create(gsflexgrid)
+Gui.SS_Form1.fgDataView.size(15840,7380)
+Gui.SS_Form1.fgDataView.position(105,3150)
+Gui.SS_Form1.fgDataView.event(MouseUp,fgDataView_MouseUP)
+Gui.SS_Form1.cmdPrint.create(button)
+Gui.SS_Form1.cmdPrint.caption("Print")
+Gui.SS_Form1.cmdPrint.size(1005,360)
+Gui.SS_Form1.cmdPrint.position(1500,10680)
+Gui.SS_Form1.cmdPrint.event(Click,cmdprint_click)
+Gui.SS_Form1.cmdPrint.defaultvalue("")
+Gui.Form1..create
+Gui.Form1..caption("Report Type")
+Gui.Form1..size(2340,2835)
+Gui.Form1..minx(0)
+Gui.Form1..miny(0)
+Gui.Form1..position(0,0)
+Gui.Form1..event(UnLoad,form1_unload)
+Gui.Form1..forecolor(0)
+Gui.Form1..fontstyle(,,)
+Gui.Form1..BackColor(-2147483633)
+Gui.Form1..maxbutton(False)
+Gui.Form1..minbutton(False)
+Gui.Form1..mousepointer(0)
+Gui.Form1..sizeable(False)
+Gui.Form1.cmdPrint2.create(button)
+Gui.Form1.cmdPrint2.caption("Print")
+Gui.Form1.cmdPrint2.size(855,375)
+Gui.Form1.cmdPrint2.position(200,1785)
+Gui.Form1.cmdPrint2.event(Click,cmdprint2_click)
+Gui.Form1.cmdPrint2.defaultvalue("")
+Gui.Form1.dropdownlist1.create(dropdownlist)
+Gui.Form1.dropdownlist1.size(1455,330)
+Gui.Form1.dropdownlist1.position(200,200)
+Gui.Form1.dropdownlist1.defaultvalue("")
+Gui.Form1.lbl1.create(label,"Past Invoice Date Range",False,1935,255,1,200,1115,True,0,Arial,8,-2147483633,0)
+Gui.Form1.lbl1.defaultvalue("")
+Gui.Form1.lbl2.create(label,"Days",False,1935,255,1,875,1340,True,0,Arial,8,-2147483633,0)
+Gui.Form1.lbl2.defaultvalue("")
+Gui.Form1.ddlLevel.create(dropdownlist)
+Gui.Form1.ddlLevel.size(1455,330)
+Gui.Form1.ddlLevel.position(200,725)
+Gui.Form1.ddlLevel.event(Click,ddllevel_click)
+Gui.Form1.ddlLevel.defaultvalue("")
+Gui.Form1.txtDays.create(textbox,"",False,585,300,0,200,1310,True,0,Arial,8,-2147483643,1)
+Gui.Form1.txtDays.numericonly(2)
+Gui.Form1.txtDays.defaultvalue("")
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+Variable.UDT.uLoc.Define("iSel",Long)
+
+Variable.UDT.uLoc.Define("sName",String,Location_Desc)
+Variable.UDT.uLoc.Define("sLoc",String,Location)
+Variable.UDT.uBin.Define("iSel",Long)
+Variable.UDT.uBin.Define("sBin",String,Bin)
+Variable.UDT.uBin.Define("sDesc",String,Bin_Description)
+Variable.uGlobal.uLoc.Declare("uLoc")
+Variable.uGlobal.uBin.Declare("uBin")
+Variable.UDT.uData.Define("sLine",String)
+Variable.UDT.uData.Define("sLevel",String)
+Variable.UDT.uData.Define("sPart",String)
+Variable.UDT.uData.Define("sDesc",String)
+Variable.UDT.uData.Define("sCat",String)
+Variable.UDT.uData.Define("sSource",String)
+Variable.UDT.uData.Define("iQty",Float)
+Variable.UDT.uData.Define("iOnHand",Float)
+Variable.UDT.uData.Define("iOnOrder",Float)
+Variable.UDT.uData.Define("iRequired",Float)
+Variable.UDT.uData.Define("iBomNet",Float)
+Variable.UDT.uData.Define("iNet",Float)
+Variable.uGlobal.uData.Declare("uData")
+Variable.Global.sPartRev.Declare(String)
+Variable.Global.iQty.Declare(Float,0)
+Variable.Global.sBins.Declare(String)
+Variable.Global.sLocs.Declare(String)
+
+Variable.UDT.uReport.Define("TYPE",String,TYPE)
+Variable.UDT.uReport.Define("HEADERBIN",String,HEADERBIN)
+Variable.UDT.uReport.Define("HEADERLOC",String,HEADERLOC)
+Variable.UDT.uReport.Define("LINE",String,LINE)
+Variable.UDT.uReport.Define("LEVEL",String,LEVEL)
+Variable.UDT.uReport.Define("HEADERQTY",String,HEADERQTY)
+Variable.UDT.uReport.Define("ONHAND",String,ONHAND)
+Variable.UDT.uReport.Define("ONORDER",String,ONORDER)
+Variable.UDT.uReport.Define("PART",String,PART)
+Variable.UDT.uReport.Define("REQUIRED",String,REQUIRED)
+Variable.UDT.uReport.Define("SPARE",String,SPARE)
+Variable.UDT.uReport.Define("HEADERPART",String,HEADERPART)
+Variable.UDT.uReport.Define("DESC",String,DESCRIPTION)
+Variable.UDT.uReport.Define("BOMNET",String,BOM_NET)
+Variable.UDT.uReport.Define("BOMQTY",String,BOM_QTY)
+Variable.UDT.uReport.Define("PO_NUM",String)
+Variable.UDT.uReport.Define("PRIOR_USE_QTY",Float,PRIOR_USE)
+Variable.UDT.uReport.Define("NOT_INSP",Float,INSP)
+Variable.uGlobal.uReport.Declare("uReport")
+Variable.UDT.uAdditional.Define("PART",String,PART)
+Variable.UDT.uAdditional.Define("VENDOR",String,VENDOR)
+Variable.UDT.uAdditional.Define("PO",String,PO)
+Variable.UDT.uAdditional.Define("ONORDER",Float,ONORDER)
+Variable.UDT.uAdditional.Define("SPARE",Float)
+Variable.UDT.uAdditional.Define("DATE_ORDER",Date,DATE_ORDER)
+Variable.UDT.uAdditional.Define("DUE_DATE",Date,DUE_DATE)
+Variable.UDT.uAdditional.Define("ORIG_DUE_DATE",Date,ORIG_DUE_DATE)
+Variable.uGlobal.uAdditional.Declare("uAdditional")
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+F.Intrinsic.Control.SetErrorHandler("Main_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+F.ODBC.Connection!conX.OpenConnection(V.Ambient.PDSN,V.Ambient.PUser,V.Ambient.PPass)
+
+Gui.Form1.dropdownlist1.additem("Detail")
+Gui.Form1.dropdownlist1.AddItem("Summary")
+Gui.Form1.ddlLevel.AddItem("Single Level")
+Gui.Form1.ddlLevel.AddItem("Multi-Level")
+
+Gui.Form1.dropdownlist1.Text("Detail")
+Gui.Form1.ddlLevel.Text("Single Level")
+'Gui.Form1.txtDays.Text("90")
+F.Intrinsic.Control.CallSub(Ddllevel_click)
+
+Gui.SS_Form1.txtDesc.Enabled(False)
+F.Intrinsic.Control.CallSub(Buildstyle_fgloc)
+Function.Intrinsic.Control.CallSub(Buildstyle_fgbin)
+F.Intrinsic.Control.CallSub(Buildstyle_fgdataview)
+Function.Intrinsic.Control.CallSub(Loadbins)
+Function.Intrinsic.Control.CallSub(Loadloc)
+Gui.SS_Form1..Show
+Gui.SS_Form1.txtPart.SetFocus
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Main_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3745_Expl_BOM_Dsh.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	Function.Intrinsic.Control.CallSub(Ss_form1_unload)
+Function.Intrinsic.Control.EndIf
+
+Program.Sub.Main.End
+
+Program.Sub.SS_Form1_Unload.Start
+F.Intrinsic.Control.SetErrorHandler("SS_Form1_Unload_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+F.ODBC.Connection!conX.Close
+F.Intrinsic.Control.End
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("SS_Form1_Unload_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3745_Expl_BOM_Dsh.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	Function.Intrinsic.Control.End
+
+Function.Intrinsic.Control.EndIf
+
+Program.Sub.SS_Form1_Unload.End
+
+Program.Sub.chkBom_Click.Start
+F.Intrinsic.Control.SetErrorHandler("chkBom_Click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+Function.Intrinsic.Control.BlockEvents
+f.Intrinsic.Control.If(V.Screen.SS_Form1!chkBom.Value,=,1)
+	'disable the router checkbox
+	gui.SS_Form1.chkRouter.Value(0)
+	gui.SS_Form1.lblPart.Caption("Parent Number")
+Function.Intrinsic.Control.Else
+	gui.SS_Form1.lblPart.Caption("Part")
+Function.Intrinsic.Control.EndIf
+
+'clear out part rev and desc textbox
+'Gui.SS_Form1..ClearGroup(1)
+
+Function.Intrinsic.Control.UnBlockEvents
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("chkBom_Click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3745_Expl_BOM_Dsh.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	Function.Intrinsic.Control.CallSub(ss_form1_unload)
+Function.Intrinsic.Control.EndIf
+Program.Sub.chkBom_Click.End
+
+Program.Sub.chkRouter_Click.Start
+F.Intrinsic.Control.SetErrorHandler("chkRouter_Click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+Function.Intrinsic.Control.BlockEvents
+
+Function.Intrinsic.Control.If(V.Screen.SS_Form1!chkRouter.Value,=,1)
+	Gui.SS_Form1.chkBom.Value(0)
+	Gui.SS_Form1.lblPart.Caption("Router Number")
+Function.Intrinsic.Control.Else
+	Gui.SS_Form1.lblPart.Caption("Part")
+Function.Intrinsic.Control.EndIf
+'clear out part rev and desc textbox
+'Gui.SS_Form1..ClearGroup(1)
+
+Function.Intrinsic.Control.UnBlockEvents
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("chkRouter_Click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3745_Expl_BOM_Dsh.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	Function.Intrinsic.Control.CallSub(Ss_form1_unload)
+Function.Intrinsic.Control.EndIf
+
+Program.Sub.chkRouter_Click.End
+
+Program.Sub.chkAllLoc_Click.Start
+F.Intrinsic.Control.SetErrorHandler("chkAllLoc_Click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+Function.Intrinsic.Control.BlockEvents
+'if All Locations are found we are going to clear out the grid and then disable it.
+F.Intrinsic.Control.If(V.Screen.SS_Form1!chkAllLoc.Value,=,1)
+'	gui.SS_Form1.fgLoc.Rows(1)
+	Gui.SS_Form1.fgLoc.Enabled(False)
+	F.Intrinsic.Variable.UDTSetMemberValue(V.uGlobal.uLoc!iSel,"0")
+	Gui.SS_Form1.fgLoc.Visible(False)
+	Gui.SS_Form1.fgLoc.LoadFromUDT("v.uglobal.uLoc","iSel*!*sLoc*!*sName",2)
+	Gui.SS_Form1.fgLoc.Visible(True)
+F.Intrinsic.Control.Else
+'	gui.SS_Form1.fgLoc.Rows(2)
+'	gui.SS_Form1.fgLoc.FixedRows(1)
+	Gui.SS_Form1.fgLoc.Enabled(True)
+Function.Intrinsic.Control.EndIf
+Function.Intrinsic.Control.UnBlockEvents
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("chkAllLoc_Click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3745_Expl_BOM_Dsh.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	Function.Intrinsic.Control.CallSub(Ss_form1_unload)
+Function.Intrinsic.Control.EndIf
+
+Program.Sub.chkAllLoc_Click.End
+
+Program.Sub.chkAllBins_Click.Start
+F.Intrinsic.Control.SetErrorHandler("chkAllBins_Click_Err")
+F.Intrinsic.Control.ClearErrors
+Function.Intrinsic.Control.BlockEvents
+V.Local.sError.Declare(String)
+F.Intrinsic.Control.If(V.Screen.SS_Form1!chkAllBins.Value,=,1)
+'	gui.SS_Form1.fgBin.Rows(1)
+	Gui.SS_Form1.fgBin.Enabled(False)
+	F.Intrinsic.Variable.UDTSetMemberValue(V.uGlobal.uBin!iSel,"0")
+	Gui.SS_Form1.fgBin.Visible(False)
+	Gui.SS_Form1.fgBin.LoadFromUDT("v.uglobal.uBin","iSel*!*sBin*!*sDesc",2)
+	Gui.SS_Form1.fgbin.Visible(True)
+Function.Intrinsic.Control.Else
+'	gui.SS_Form1.fgBin.Rows(2)
+'	gui.SS_Form1.fgBin.FixedRows(1)
+	Gui.SS_Form1.fgBin.Enabled(True)
+Function.Intrinsic.Control.EndIf
+
+Function.Intrinsic.Control.UnBlockEvents
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("chkAllBins_Click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3745_Expl_BOM_Dsh.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	Function.Intrinsic.Control.CallSub(Ss_form1_unload)
+Function.Intrinsic.Control.EndIf
+
+Program.Sub.chkAllBins_Click.End
+
+Program.Sub.cmd_txtRev_Click.Start
+F.Intrinsic.Control.SetErrorHandler("cmd_txtRev_Click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.sRet.Declare(String)
+
+F.Intrinsic.UI.SetBrowserHotTypeAhead(True)
+
+'determine if we are using the router or the bom browser based on the user selection of the checkboxes bom or router
+F.Intrinsic.Control.If(V.Screen.SS_Form1!chkRouter.Value,=,1)
+	F.Intrinsic.UI.Browser(2700,"",V.Local.sRet)
+Function.Intrinsic.Control.ElseIf(V.Screen.SS_Form1!chkBom.Value,=,1)
+	F.Intrinsic.UI.Browser(3005,"",V.Local.sRet)
+Function.Intrinsic.Control.Else
+	F.Intrinsic.UI.Msgbox("Select the BOM or Router checkbox to use browser.","Verify Selection...")
+	Function.Intrinsic.Control.ExitSub
+Function.Intrinsic.Control.EndIf
+
+Function.Intrinsic.Control.If(V.Local.sRet.Trim,<>,"***CANCEL***")
+	F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+	Gui.SS_Form1.txtPart.Text(V.Local.sRet(0).Trim)
+	Gui.SS_Form1.txtRev.text(V.Local.sRet(1).Trim)
+	Gui.SS_Form1.txtDesc.Text(V.Local.sRet(2).Trim)
+Function.Intrinsic.Control.EndIf
+
+Gui.SS_Form1.fgDataView.Visible(false)
+Gui.SS_Form1.cmdPrint.Enabled(false)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmd_txtRev_Click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3745_Expl_BOM_Dsh.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	Function.Intrinsic.Control.CallSub(Ss_form1_unload)
+Function.Intrinsic.Control.EndIf
+
+Program.Sub.cmd_txtRev_Click.End
+
+Program.Sub.cmdProcess_Click.Start
+F.Intrinsic.Control.SetErrorHandler("cmdProcess_Click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+V.uGlobal.udata.Redim(-1,-1)
+F.Intrinsic.String.GSSPartString(V.Screen.SS_Form1!txtPart.Text,V.Screen.SS_Form1!txtRev.Text,V.Global.sPartRev)
+V.Global.iQty.Set(V.Screen.SS_Form1!txtQty.text)
+F.Intrinsic.Control.If(V.Global.sPartRev.Trim,=,"")
+	F.Intrinsic.UI.Msgbox("Please choose a Part.","Verify selection...")
+	Gui.SS_Form1.cmd_txtRev.SetFocus
+	Function.Intrinsic.Control.ExitSub
+Function.Intrinsic.Control.ElseIf(V.Global.iQty,=,0)
+	F.Intrinsic.UI.Msgbox("Please enter Quantity Value.","Verify Selection...")
+	Gui.SS_Form1.txtQty.SetFocus
+	Function.Intrinsic.Control.ExitSub
+Function.Intrinsic.Control.EndIf
+
+Function.Intrinsic.Control.BlockEvents
+
+F.Intrinsic.UI.InvokeWaitDialog("Processing...")
+'get bins and locs if they chose them
+Function.Intrinsic.Control.CallSub(Readbinandloc)
+
+
+'did they choose router or bom?
+Function.Intrinsic.Control.If(V.Screen.SS_Form1!chkRouter.Value,=,1)
+	'we can use the explode bom pass the first param as a 1 and it will give us the router information. yes.
+
+	F.Intrinsic.Control.CallSub(Getbomdata)
+Function.Intrinsic.Control.ElseIf(V.Screen.SS_Form1!chkBom.Value,=,1)
+	F.Intrinsic.Control.CallSub(Getbomdata)
+F.Intrinsic.Control.Else
+	F.Intrinsic.UI.Msgbox("Please select Router or Bom flag before continuing.","Verify Selection...")
+Function.Intrinsic.Control.EndIf
+
+
+Gui.SS_Form1.fgDataView.Visible(False)
+
+Gui.SS_Form1.fgDataView.LoadFromUDT("v.uglobal.uData","sLine*!*sLevel*!*sPart*!*sDesc*!*sCat*!*sSource*!*iQty*!*iOnHand*!*iOnOrder*!*iRequired*!*iNet*!*iBomNet",2)
+Gui.SS_Form1.fgDataView.Visible(True)
+Gui.SS_Form1.cmdPrint.Enabled(True)
+Function.Intrinsic.Control.UnBlockEvents
+F.Intrinsic.UI.CloseWaitDialog
+
+
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmdProcess_Click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3745_Expl_BOM_Dsh.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	Function.Intrinsic.Control.CallSub(Ss_form1_unload)
+Function.Intrinsic.Control.EndIf
+
+Program.Sub.cmdProcess_Click.End
+
+Program.Sub.Buildstyle_FGLOC.Start
+F.Intrinsic.Control.SetErrorHandler("Buildstyle_FGLOC_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+'3 columbs
+'Selection Checkbox
+'Location
+'Name Location
+
+V.Local.iC.Declare(Long)
+
+Gui.SS_Form1.fgLoc.Cols(3)
+Gui.SS_Form1.fgLoc.Rows(1)
+Gui.SS_Form1.fgLoc.Rows(2)
+Gui.SS_Form1.fgLoc.FixedRows(1)
+
+Gui.SS_Form1.fgLoc.SetColumnPercentages(".15:.2:.65")
+
+'Buildstyle 1 is the Header Rows
+'style 2 is the data view
+F.Intrinsic.Control.For(V.Local.iC,0,2,1)
+	Gui.SS_Form1.fgLoc.BuildStyle(1,V.Local.iC,"Type","Locked",True)
+	Gui.SS_Form1.fgLoc.BuildStyle(1,V.Local.iC,"Format","Alignment",2)
+	Gui.SS_Form1.fgLoc.BuildStyle(1,V.Local.iC,"Fontstyle","Bold",True)
+	Function.Intrinsic.Control.If(V.Local.iC,>,0)
+		Gui.SS_Form1.fgLoc.BuildStyle(2,V.Local.iC,"Type","Locked",True)
+		Gui.SS_Form1.fgLoc.BuildStyle(2,V.Local.iC,"Format","Alignment",2)
+	Function.Intrinsic.Control.Else
+		'this is our checkbox
+		Gui.SS_Form1.fgLoc.BuildStyle(2,V.Local.iC,"Type","Checkbox","")
+	Function.Intrinsic.Control.EndIf
+F.Intrinsic.Control.Next(V.Local.iC)
+
+Gui.SS_Form1.fgLoc.TextMatrix(0,0,"")
+Gui.SS_Form1.fgLoc.TextMatrix(1,0,"Loc")
+Gui.SS_Form1.fgLoc.TextMatrix(2,0,"Name")
+
+Gui.SS_Form1.fgLoc.ApplyStyle(0,1)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Buildstyle_FGLOC_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3745_Expl_BOM_Dsh.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	Function.Intrinsic.Control.CallSub(Ss_form1_unload)
+Function.Intrinsic.Control.EndIf
+
+Program.Sub.Buildstyle_FGLOC.End
+
+Program.Sub.Buildstyle_FGBin.Start
+F.Intrinsic.Control.SetErrorHandler("Buildstyle_FGBin_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+v.Local.iC.Declare(Long)
+'3 columbs
+'Selection Checkbox
+'Bin
+'Desc
+gui.SS_Form1.fgBin.Cols(3)
+gui.SS_Form1.fgBin.Rows(1)
+gui.SS_Form1.fgBin.Rows(2)
+gui.SS_Form1.fgBin.FixedRows(1)
+gui.SS_Form1.fgBin.SetColumnPercentages(".15:.25:.60")
+
+'Buildstyle 1 is the Header Rows
+'style 2 is the data view
+f.Intrinsic.Control.For(V.Local.iC,0,2,1)
+	Gui.SS_Form1.fgBin.BuildStyle(1,V.Local.iC,"Type","Locked",True)
+	Gui.SS_Form1.fgBin.BuildStyle(1,V.Local.iC,"Format","Alignment",2)
+	Gui.SS_Form1.fgBin.BuildStyle(1,V.Local.iC,"Fontstyle","Bold",True)
+	Function.Intrinsic.Control.If(V.Local.iC,>,0)
+		Gui.SS_Form1.fgBin.BuildStyle(2,V.Local.iC,"Type","Locked",True)
+		Gui.SS_Form1.fgBin.BuildStyle(2,V.Local.iC,"Format","Alignment",2)
+	Function.Intrinsic.Control.Else
+		'this is our checkbox
+		gui.SS_Form1.fgBin.BuildStyle(2,V.Local.iC,"Type","Checkbox","")
+	Function.Intrinsic.Control.EndIf
+F.Intrinsic.Control.Next(V.Local.iC)
+
+gui.SS_Form1.fgBin.TextMatrix(0,0,"")
+gui.SS_Form1.fgBin.TextMatrix(1,0,"Bin")
+gui.SS_Form1.fgBin.TextMatrix(2,0,"Desc")
+
+gui.SS_Form1.fgBin.ApplyStyle(0,1)
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Buildstyle_FGBin_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3745_Expl_BOM_Dsh.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	Function.Intrinsic.Control.CallSub(ss_form1_unload)
+Function.Intrinsic.Control.EndIf
+Program.Sub.Buildstyle_FGBin.End
+
+Program.Sub.Buildstyle_FGDataView.Start
+F.Intrinsic.Control.SetErrorHandler("Buildstyle_FGDataView_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+Gui.SS_Form1.fgDataView.Rows(1)
+Gui.SS_Form1.fgDataView.Rows(2)
+Gui.SS_Form1.fgDataView.FixedRows(1)
+Gui.SS_Form1.fgDataView.Cols(12)
+
+Gui.SS_Form1.fgDataView.SetColumnPercentages(".04:.06:.15:.20:.06:.05:.08:.07:.07:.07:.07:.07")
+
+'Style 1
+'Row 1
+'Style 1
+'Row 1
+Gui.SS_Form1.fgDataView.BuildStyle(1,0,"Type","Locked",True)
+Gui.SS_Form1.fgDataView.BuildStyle(1,0,"Fontstyle","Bold",True)
+Gui.SS_Form1.fgDataView.BuildStyle(1,0,"Format","Alignment",2)
+
+'Row 2
+Gui.SS_Form1.fgDataView.BuildStyle(1,1,"Type","Locked",True)
+Gui.SS_Form1.fgDataView.BuildStyle(1,1,"Fontstyle","Bold",True)
+Gui.SS_Form1.fgDataView.BuildStyle(1,1,"Format","Alignment",2)
+'Row 3
+Gui.SS_Form1.fgDataView.BuildStyle(1,2,"Type","Locked",True)
+Gui.SS_Form1.fgDataView.BuildStyle(1,2,"Fontstyle","Bold",True)
+Gui.SS_Form1.fgDataView.BuildStyle(1,2,"Format","Alignment",1)
+'Row 4
+Gui.SS_Form1.fgDataView.BuildStyle(1,3,"Type","Locked",True)
+Gui.SS_Form1.fgDataView.BuildStyle(1,3,"Fontstyle","Bold",True)
+Gui.SS_Form1.fgDataView.BuildStyle(1,3,"Format","Alignment",2)
+'Row 5
+Gui.SS_Form1.fgDataView.BuildStyle(1,4,"Type","Locked",True)
+Gui.SS_Form1.fgDataView.BuildStyle(1,4,"Fontstyle","Bold",True)
+Gui.SS_Form1.fgDataView.BuildStyle(1,4,"Format","Alignment",2)
+'Row 6
+Gui.SS_Form1.fgDataView.BuildStyle(1,5,"Type","Locked",True)
+Gui.SS_Form1.fgDataView.BuildStyle(1,5,"Fontstyle","Bold",True)
+Gui.SS_Form1.fgDataView.BuildStyle(1,5,"Format","Alignment",2)
+'Row 7
+Gui.SS_Form1.fgDataView.BuildStyle(1,6,"Type","Locked",True)
+Gui.SS_Form1.fgDataView.BuildStyle(1,6,"Fontstyle","Bold",True)
+Gui.SS_Form1.fgDataView.BuildStyle(1,6,"Format","Alignment",6)
+'Row 8
+Gui.SS_Form1.fgDataView.BuildStyle(1,7,"Type","Locked",True)
+Gui.SS_Form1.fgDataView.BuildStyle(1,7,"Fontstyle","Bold",True)
+Gui.SS_Form1.fgDataView.BuildStyle(1,7,"Format","Alignment",6)
+' Row 9
+Gui.SS_Form1.fgDataView.BuildStyle(1,8,"Type","Locked",True)
+Gui.SS_Form1.fgDataView.BuildStyle(1,8,"Fontstyle","Bold",True)
+Gui.SS_Form1.fgDataView.BuildStyle(1,8,"Format","Alignment",6)
+
+'Row 10
+Gui.SS_Form1.fgDataView.BuildStyle(1,9,"Type","Locked",True)
+Gui.SS_Form1.fgDataView.BuildStyle(1,9,"Fontstyle","Bold",True)
+Gui.SS_Form1.fgDataView.BuildStyle(1,9,"Format","Alignment",6)
+'Row 11
+Gui.SS_Form1.fgDataView.BuildStyle(1,10,"Type","Locked",True)
+Gui.SS_Form1.fgDataView.BuildStyle(1,10,"Fontstyle","Bold",True)
+Gui.SS_Form1.fgDataView.BuildStyle(1,10,"Format","Alignment",6)
+'Row 12
+Gui.SS_Form1.fgDataView.BuildStyle(1,11,"Type","Locked",True)
+Gui.SS_Form1.fgDataView.BuildStyle(1,11,"Fontstyle","Bold",True)
+Gui.SS_Form1.fgDataView.BuildStyle(1,11,"Format","Alignment",6)
+
+
+
+'Style 1
+'Row 1
+Gui.SS_Form1.fgDataView.BuildStyle(2,0,"Type","Locked",True)
+Gui.SS_Form1.fgDataView.BuildStyle(2,0,"Format","Alignment",2)
+
+'Row 2
+Gui.SS_Form1.fgDataView.BuildStyle(2,1,"Type","Locked",True)
+Gui.SS_Form1.fgDataView.BuildStyle(2,1,"Format","Alignment",2)
+
+'Row 3
+Gui.SS_Form1.fgDataView.BuildStyle(2,2,"Type","Locked",True)
+Gui.SS_Form1.fgDataView.BuildStyle(2,2,"Format","Alignment",2)
+
+'Row 4
+Gui.SS_Form1.fgDataView.BuildStyle(2,3,"Type","Locked",True)
+Gui.SS_Form1.fgDataView.BuildStyle(2,3,"Format","Alignment",2)
+
+'Row 5
+Gui.SS_Form1.fgDataView.BuildStyle(2,4,"Type","Locked",True)
+Gui.SS_Form1.fgDataView.BuildStyle(2,4,"Format","Alignment",2)
+
+'Row 6
+Gui.SS_Form1.fgDataView.BuildStyle(2,5,"Type","Locked",True)
+Gui.SS_Form1.fgDataView.BuildStyle(2,5,"Format","Alignment",2)
+
+
+
+'Row 7
+Gui.SS_Form1.fgDataView.BuildStyle(2,6,"Type","Locked",True)
+Gui.SS_Form1.fgDataView.BuildStyle(2,6,"Format","Alignment",6)
+Gui.SS_Form1.fgDataView.BuildStyle(2,6,"Format","Mask","##.00")
+
+'Row 8
+Gui.SS_Form1.fgDataView.BuildStyle(2,7,"Type","Locked",True)
+Gui.SS_Form1.fgDataView.BuildStyle(2,7,"Format","Alignment",6)
+Gui.SS_Form1.fgDataView.BuildStyle(2,7,"Format","Mask","##.00")
+
+' Row 9
+Gui.SS_Form1.fgDataView.BuildStyle(2,8,"Type","Locked",True)
+Gui.SS_Form1.fgDataView.BuildStyle(2,8,"Format","Alignment",6)
+Gui.SS_Form1.fgDataView.BuildStyle(2,8,"Color","Fore",V.Color.LtBlue)
+Gui.SS_Form1.fgDataView.BuildStyle(2,8,"Fontstyle","Underline",True)
+Gui.SS_Form1.fgDataView.BuildStyle(2,8,"Format","Mask","##.00")
+
+'Row 10
+Gui.SS_Form1.fgDataView.BuildStyle(2,9,"Type","Locked",True)
+Gui.SS_Form1.fgDataView.BuildStyle(2,9,"Format","Alignment",6)
+Gui.SS_Form1.fgDataView.BuildStyle(2,9,"Format","Mask","##.00")
+
+
+'Row 11
+Gui.SS_Form1.fgDataView.BuildStyle(2,10,"Type","Locked",True)
+Gui.SS_Form1.fgDataView.BuildStyle(2,10,"Format","Alignment",6)
+Gui.SS_Form1.fgDataView.BuildStyle(2,10,"Format","Mask","##.00")
+
+
+'Row 12
+Gui.SS_Form1.fgDataView.BuildStyle(2,11,"Type","Locked",True)
+Gui.SS_Form1.fgDataView.BuildStyle(2,11,"Format","Alignment",6)
+Gui.SS_Form1.fgDataView.BuildStyle(2,11,"Format","Mask","##.00")
+
+
+Gui.SS_Form1.fgDataView.TextMatrix(0,0,"Line")
+Gui.SS_Form1.fgDataView.TextMatrix(1,0,"Level")
+Gui.SS_Form1.fgDataView.TextMatrix(2,0,"Part")
+Gui.SS_Form1.fgDataView.TextMatrix(3,0,"Desc")
+Gui.SS_Form1.fgDataView.TextMatrix(4,0,"Categroy")
+Gui.SS_Form1.fgDataView.TextMatrix(5,0,"Source")
+Gui.SS_Form1.fgDataView.TextMatrix(6,0,"Quantity")
+Gui.SS_Form1.fgDataView.TextMatrix(7,0,"On Hand")
+Gui.SS_Form1.fgDataView.TextMatrix(8,0,"On Order")
+Gui.SS_Form1.fgDataView.TextMatrix(9,0,"Required")
+Gui.SS_Form1.fgDataView.TextMatrix(10,0,"Net")
+Gui.SS_Form1.fgDataView.TextMatrix(11,0,"Bom Net")
+
+Gui.SS_Form1.fgDataView.ApplyStyle(0,1)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Buildstyle_FGDataView_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3745_Expl_BOM_Dsh.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	Function.Intrinsic.Control.CallSub(Ss_form1_unload)
+Function.Intrinsic.Control.EndIf
+
+Program.Sub.Buildstyle_FGDataView.End
+
+Program.Sub.LoadBins.Start
+F.Intrinsic.Control.SetErrorHandler("LoadBins_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+'loda our bin and loc udts then load into our grids
+
+V.Local.sSQL.Declare(String)
+
+F.ODBC.Connection!conX.OpenLocalRecordsetRO("rst","Select Bin,Bin_Description From V_BIN_Master Order by BIN")
+F.Intrinsic.Control.If(V.ODBC.conX!rst.EOF,=,False)
+	F.Intrinsic.Variable.LoadUDTFromRecordset("conX","rst","v.uglobal.uBin",False)
+Function.Intrinsic.Control.EndIf
+F.ODBC.conX!rst.Close
+
+Gui.SS_Form1.fgBin.LoadFromUDT("v.uglobal.uBin","iSel*!*sBin*!*sDesc",2)
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("LoadBins_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3745_Expl_BOM_Dsh.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+Program.Sub.LoadBins.End
+
+Program.Sub.LoadLoc.Start
+F.Intrinsic.Control.SetErrorHandler("LoadLoc_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.sSQL.Declare(String)
+
+F.ODBC.Connection!conX.OpenLocalRecordsetRO("rst","Select Location,Location_Desc From V_LOcations Order By Location")
+F.Intrinsic.Control.If(V.ODBC.conX!rst.EOF,=,False)
+	F.Intrinsic.Variable.LoadUDTFromRecordset("conX","rst","v.uglobal.uLoc",False)
+Function.Intrinsic.Control.EndIf
+F.ODBC.conX!rst.Close
+
+Gui.SS_Form1.fgLoc.LoadFromUDT("v.uglobal.uLoc","iSel*!*sLoc*!*sName",2)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("LoadLoc_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3745_Expl_BOM_Dsh.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	Function.Intrinsic.Control.CallSub(Ss_form1_unload)
+Function.Intrinsic.Control.EndIf
+
+Program.Sub.LoadLoc.End
+
+Program.Sub.GetRouterData.Start
+F.Intrinsic.Control.SetErrorHandler("GetRouterData_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.sSQL.Declare(String)
+V.Local.iUB.Declare(Long)
+
+'Get our Router Material Data for the grid and load into our uData UDT.
+
+
+
+
+
+F.Intrinsic.String.Build("Select Line_Router,Part_WC_Outside,Run_time,Desc_Rt_Line From V_Router_Line Where LMO = 'M' And Router = '{0}' Order By Line_Router",V.Global.sPartRev.Trim,V.Local.sSQL)
+
+F.ODBC.Connection!conX.OpenLocalRecordsetRO("rst",V.Local.sSQL)
+F.Intrinsic.Control.DoUntil(V.ODBC.conX!rst.EOF,=,True)
+	'get our information from item Master?
+	F.Intrinsic.String.Build("Select Quantity From V_Item_Master Where Part = '{0}' {1} {2}",V.ODBC.conX!rst.FieldValTrim!Part_WC_Outside,V.Global.sBins,V.Global.sLocs,V.Local.sSQL)
+	F.ODBC.Connection!conX.OpenLocalRecordsetRO("rstLine",V.Local.sSQL)
+	Function.Intrinsic.Control.If(V.ODBC.conX!rstLine.EOF,=,False)
+		Function.Intrinsic.Control.If(V.uGlobal.uData.UBound,=,-1)
+			V.Local.iUB.Set(0)
+			V.uGlobal.uData.Redim(0,0)
+		Function.Intrinsic.Control.Else
+			F.Intrinsic.Math.Add(V.uGlobal.uData.UBound,1,V.Local.iUB)
+			V.uGlobal.uData.RedimPreserve(0,V.Local.iUB)
+		Function.Intrinsic.Control.EndIf
+		F.Intrinsic.Math.Mult(V.ODBC.conX!rstLine.FieldValTrim!Quantity,V.Global.iqty,V.uGlobal.uData(v.Local.iUB)!iQty)
+
+		V.uGlobal.uData(v.Local.iUB)!sLine.Set(V.ODBC.conX!rst.FieldVal!Line_Router)
+		V.uGlobal.udata(v.Local.iUB)!sLevel.Set("")
+		V.uGlobal.uData(v.Local.iUB)!sPart.Set(V.ODBC.conX!rst.FieldValTrim!Part_WC_Outside)
+		V.uGlobal.uData(v.Local.iUB)!sDesc.Set(V.ODBC.conX!rst.FieldValTrim!Desc_RT_Line)
+		'Category and Source From INV Master
+		F.Intrinsic.String.Build("Select Qty_Order,Qty_ONHAND,QTY_REQUIRED,CODE_SOURCE From V_Inventory_All Where Part = '{0}' {1}",V.ODBC.conX!rst.FieldValTrim!Part_WC_Outside,V.Global.sLocs,V.Local.sSQL)
+		F.ODBC.Connection!conX.OpenLocalRecordsetRO("rstPart",V.Local.sSQL)
+		Function.Intrinsic.Control.If(V.ODBC.conX!rstPart.EOF,<>,True)
+			V.uGlobal.uData(v.Local.iUB)!iOnOrder.Set(V.ODBC.conx!rstPart.FieldValFloat!Qty_Order)
+			V.uGlobal.uData(v.Local.iUB)!iOnHand.Set(V.ODBC.conX!rstPart.FieldValFloat!Qty_OnHand)
+			V.uGlobal.uData(v.Local.iUB)!iRequired.Set(V.ODBC.conX!rstPart.FieldValFloat!Qty_Required)
+			V.uGlobal.uData(v.Local.iUB)!sSource.Set(V.ODBC.conX!rstPart.FieldValTrim!Code_Source)
+		Function.Intrinsic.Control.EndIf
+		F.ODBC.conX!rstPart.close
+	Function.Intrinsic.Control.EndIf
+	F.ODBC.conx!rstLine.Close
+
+
+	F.ODBC.conx!rst.MoveNext
+Function.Intrinsic.Control.Loop
+F.ODBC.conX!rst.Close
+
+
+
+
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("GetRouterData_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3745_Expl_BOM_Dsh.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	Function.Intrinsic.Control.CallSub(Ss_form1_unload)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.GetRouterData.End
+
+Program.Sub.GetBOMData.Start
+F.Intrinsic.Control.SetErrorHandler("GetBOMData_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.sFilePath.Declare(String)
+V.Local.sFile.Declare(String)
+V.Local.sPartFile.Declare(String)
+V.Local.sRet.Declare(String)
+V.Local.iLoop.Declare(Long)
+V.Local.iC.Declare(Long)
+V.Local.sSQL.Declare(String)
+V.Local.iUB.Declare(Long)
+V.Local.iLine.Declare(Long)
+V.Local.iBR.Declare(Long)
+V.Local.iStart.Declare(Long)
+V.Local.iBomNet.Declare(Float)
+V.Local.fTemp.Declare(Float)
+'file Contents include:
+'Line
+'Seq
+'Part
+'Desc
+'Cat
+'Source
+'quantity
+'on hand
+'on order
+'required
+'net
+'parent
+'lead
+
+Function.Intrinsic.Control.If(V.Screen.SS_Form1!chkbom.Value,=,1)
+	V.Local.iBR.Set(0)
+Function.Intrinsic.Control.Else
+	V.Local.iBR.Set(1)
+Function.Intrinsic.Control.EndIf
+
+F.Intrinsic.String.Concat(V.System.Temp,"\EXPLODEBOM",V.Caller.Terminal,".txt",V.Local.sFilePath)
+F.Intrinsic.String.Build("{2}{0}{1}{0}{3}",V.Ambient.Tab,V.global.sPartRev,V.Local.iBR,V.Global.iQty,V.Local.sFile)
+F.Intrinsic.File.String2File(V.Local.sFilePath,V.Local.sFile)
+F.Global.General.CallWrapperSync(410000,V.Local.sFilePath)
+
+f.Intrinsic.File.File2StringArray(v.Local.sFilePath,v.Ambient.Tab,v.Local.sFile)
+'make sure sfile 3 exists.
+F.Intrinsic.Control.If(V.Local.sfile.UBound,<,3)
+	Function.Intrinsic.Control.ExitSub
+Function.Intrinsic.Control.EndIf
+
+F.Intrinsic.File.GetFileNameFromFQN(V.Local.sFile(3),V.Local.sFile.Trim)
+
+Function.Intrinsic.String.Split(V.Local.sFile," ",V.Local.sFile)
+F.Intrinsic.String.Concat(V.System.Temp,"\",V.Local.sFile(0).Trim,V.Local.sFilePath.Trim)
+F.Intrinsic.File.File2String(V.Local.sFilePath,V.Local.sPartFile)
+F.Intrinsic.String.Split(V.Local.sPartFile,V.Ambient.NewLine,V.Local.sPartFile)
+F.Intrinsic.Math.Sub(V.Local.sPartFile.UBound,1,V.Local.iLoop)
+
+'if its router flag we start at 7
+'if its bom flag it's 8
+Function.Intrinsic.Control.If(V.Local.iBR,=,0)
+	'means we are bom
+	V.Local.iStart.Set(8)
+Function.Intrinsic.Control.Else
+	'means we are a router
+	V.Local.iStart.Set(7)
+Function.Intrinsic.Control.EndIf
+
+
+V.Local.iLine.Set(1)
+
+
+F.Intrinsic.Control.For(V.Local.iC,V.Local.iStart,V.Local.ILOOP,1)
+	Function.Intrinsic.String.Split(V.Local.sPartFile(v.Local.iC),"|~|",V.Local.sRet)
+
+	F.Intrinsic.Control.If(V.uGlobal.uData.UBound,=,-1)
+		V.uGlobal.uData.Redim(0,0)
+		V.Local.iUB.Set(0)
+	Function.Intrinsic.Control.Else
+		F.Intrinsic.Math.Add(V.uGlobal.uData.UBound,1,V.Local.iUB)
+		V.uGlobal.uData.RedimPreserve(0,V.Local.iUB)
+	Function.Intrinsic.Control.EndIf
+
+	F.Intrinsic.String.Build("Select Sum(Quantity) As Quantity From V_Item_Master Where Part = '{0}' {1} {2}",V.Local.sRet(2),V.Global.sBins,V.Global.sLocs,V.Local.sSQL)
+	F.ODBC.Connection!conX.OpenLocalRecordsetRO("rst",V.Local.sSQL)
+
+	Function.Intrinsic.Control.If(V.ODBC.conx!rst.EOF,=,True)
+		V.uGlobal.udata(v.Local.iUB)!iOnHand.Set(0)
+	F.Intrinsic.Control.Else
+		Function.Intrinsic.Control.If(V.ODBC.conX!rst.FieldValTrim!Quantity,=,"")
+			V.uGlobal.udata(v.Local.iUB)!iOnHand.Set(0)
+		Function.Intrinsic.Control.Else
+			V.uGlobal.udata(v.Local.iUB)!iOnHand.Set(V.ODBC.conX!rst.FieldValFloat!Quantity)
+		Function.Intrinsic.Control.EndIf
+	Function.Intrinsic.Control.EndIf
+	F.ODBC.conX!rst.Close
+
+	V.uGlobal.uData(v.Local.iUB)!sLine.Set(V.Local.iLine)
+	V.uGlobal.udata(v.Local.iUB)!sLevel.Set(V.Local.sRet(1))
+	V.uGlobal.udata(v.Local.iUB)!sPart.Set(V.Local.sRet(2))
+	V.uGlobal.udata(v.Local.iUB)!sDesc.Set(V.Local.sRet(3))
+	V.uGlobal.udata(v.Local.iUB)!sCat.Set(V.Local.sRet(4))
+	V.uGlobal.uData(v.Local.iUB)!sSource.Set(V.Local.sRet(5))
+	V.uGlobal.uData(v.Local.iUB)!iQty.Set(V.Local.sRet(6))
+
+
+'	v.uGlobal.udata(v.Local.iUB)!iOnHand.Set(v.Local.sRet(7))	
+	'they claim it doesn't work, but since we can't pass location in the wrapper, how does it even know what location to use for OnOrder
+	F.Intrinsic.String.Build("Select Sum(Qty_ONORDER_PO) As ON_ORDER,SUM(QTY_ONORDER_WO) As WO_QTY  From V_Inventory_MSTR Where Part = '{0}' {1}",V.Local.sRet(2),V.Global.sLocs,V.Local.sSQL)
+	F.ODBC.Connection!conX.OpenLocalRecordsetRO("rstQty",V.Local.sSQL)
+	F.Intrinsic.Control.If(V.ODBC.conX!rstQty.EOF,=,True)
+		V.uGlobal.uData(v.Local.iUB)!iOnOrder.Set(0)
+	F.Intrinsic.Control.Else
+		F.Intrinsic.Math.Add(V.ODBC.conX!rstQty.FieldVal!On_Order,V.ODBC.conX!rstqty.FieldVal!WO_QTY,V.uGlobal.uData(v.Local.iUB)!iOnOrder)
+	F.Intrinsic.Control.EndIf
+	F.ODBC.conX!rstQty.Close
+
+'V.uGlobal.udata(v.Local.)!iOnOrder.Set(V.Local.sRet(8))Function.Intrinsic.Co
+
+
+	Function.Intrinsic.Control.If(V.uGlobal.uData(v.Local.iUB)!iOnHand,>=,V.uGlobal.uData(v.Local.iUB)!iQty)
+		'required be zero
+		V.uGlobal.uData(v.Local.iUB)!iRequired.Set(0)
+	Function.Intrinsic.Control.Else
+		'customer request FIT010-103020150917-7 required = qty-onhand
+		F.Intrinsic.Math.Sub(V.uGlobal.uData(v.Local.iUB)!iQty,V.uGlobal.uData(v.Local.iUB)!iOnHand,V.uGlobal.uData(v.Local.iUB)!iRequired)
+	Function.Intrinsic.Control.EndIf
+
+'	V.uGlobal.udata(v.Local.iUB)!iRequired.Set(V.Local.sRet(9))
+	'Net = OnHand + On Order - Required
+	F.Intrinsic.Math.Add(V.uGlobal.uData(v.Local.iub)!iOnHand,V.uGlobal.uData(v.Local.iUB)!iOnOrder,V.Local.fTemp)
+	F.Intrinsic.Math.Sub(V.Local.fTemp,V.uGlobal.uData(v.Local.iUB)!iRequired,V.Local.ftemp)
+'	F.Intrinsic.Control.If(v.Local.fTemp,>,0)
+	V.uGlobal.uData(v.Local.iUB)!iNet.Set(V.Local.fTemp)
+'	f.Intrinsic.Control.Else
+'		v.uGlobal.uData(v.Local.iUB)!iNet.Set(0)
+'	F.Intrinsic.Control.endif
+	
+	
+'	V.uGlobal.udata(v.Local.iUB)!iNet.Set(V.Local.sRet(10))
+	'Bom Net = Net-Quantity-On Order
+	F.Intrinsic.Control.If(V.Local.sRet(11),>,0)
+		F.Intrinsic.Math.Sub(V.Local.fTemp,V.uGlobal.uData(v.Local.iUB)!iQty,V.Local.fTemp)
+		F.Intrinsic.Math.Sub(V.Local.fTemp,V.uGlobal.uData(v.Local.iUB)!iOnOrder,V.Local.fTemp)
+'		f.Intrinsic.Control.If(v.Local.fTemp,>,0)
+			V.uGlobal.uData(v.Local.iUB)!iBomNet.Set(V.Local.fTemp)
+'		Function.Intrinsic.Control.Else
+'			v.uGlobal.uData(v.Local.iub)!iBomNet.Set(0)
+'		Function.Intrinsic.Control.EndIf
+'		V.uGlobal.uData(v.Local.iUB)!iBomNet.Set(V.Local.sRet(11))
+		'increment our line buddy. Cant use line from file as we are skipping the header record which is line 1/
+	F.Intrinsic.Control.EndIf
+	
+	V.Local.iLine.Set(V.Local.iLine.++)
+F.Intrinsic.Control.Next(V.Local.ic)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("GetBOMData_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3745_Expl_BOM_Dsh.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	Function.Intrinsic.Control.CallSub(Ss_form1_unload)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.GetBOMData.End
+
+Program.Sub.ReadBinandLoc.Start
+F.Intrinsic.Control.SetErrorHandler("ReadBinandLoc_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.sRet.Declare(String)
+V.Local.iR.Declare(Long)
+
+'everytime we come into this thing clear out our previous global variables.
+'this causes fun things to happen
+
+V.Global.sBins.Set("")
+V.Global.sLocs.Set("")
+
+
+
+'is all loc checked, if not we have to get the ones that are checked
+Function.Intrinsic.Control.If(V.Screen.SS_Form1!chkAllLoc.Value,=,0)
+	'assume they made some selections.
+	F.Intrinsic.Variable.UDTMultiSeek(V.uGlobal.uLoc!iSel,"1",V.Local.sRet)
+	F.Intrinsic.Control.If(V.Local.sRet.Trim,<>,"")
+		F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+		F.Intrinsic.Control.For(v.Local.iR,0,v.Local.sRet.UBound,1)
+			Function.Intrinsic.Control.If(V.Global.sLocs.Trim,=,"")
+				F.Intrinsic.String.Build("And Location In ('{0}'",V.uGlobal.uLoc(v.Local.sRet(v.Local.ir))!sLoc,V.Global.sLocs)
+			Function.Intrinsic.Control.Else
+				F.Intrinsic.String.Build("{0},'{1}'",V.Global.slocs,V.uGlobal.uLoc(v.Local.sRet(v.Local.iR))!sLoc,V.Global.sLocs)
+			Function.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.Next(v.Local.iR)
+		F.Intrinsic.String.Build("{0})",V.Global.sLocs,V.Global.sLocs)
+	Function.Intrinsic.Control.Else
+		V.Global.sLocs.Set("")
+	Function.Intrinsic.Control.EndIf
+Function.Intrinsic.Control.Else
+	V.Global.slocs.Set("")
+Function.Intrinsic.Control.EndIf
+
+'Bins
+F.Intrinsic.Control.If(V.Screen.SS_Form1!chkAllBins.Value,=,0)
+	'assume they made atleast 1 bin selection"
+	F.Intrinsic.Variable.UDTMultiSeek(V.uGlobal.uBin!iSel,"1",V.Local.sRet)
+	F.Intrinsic.Control.If(V.Local.sRet.Trim,<>,"")
+		F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+		F.Intrinsic.Control.For(v.Local.iR,0,v.Local.sRet.UBound,1)
+			Function.Intrinsic.Control.If(V.Global.sbins.Trim,=,"")
+				F.Intrinsic.String.Build("And Bin In ('{0}'",V.uGlobal.uBin(v.Local.sRet(v.Local.iR))!sBin,V.Global.sbins)
+			Function.Intrinsic.Control.Else
+				F.Intrinsic.String.Build("{0},'{1}'",V.Global.sBins,V.uGlobal.uBin(v.Local.sRet(v.Local.iR))!sBin,V.Global.sBins)
+			Function.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.Next(v.Local.iR)
+		F.Intrinsic.string.Build("{0})",V.Global.sBins,V.Global.sBins)
+	Function.Intrinsic.Control.Else
+		V.Global.sBins.Set("")
+	Function.Intrinsic.Control.EndIf
+Function.Intrinsic.Control.Else
+	V.Global.sbins.Set("")
+Function.Intrinsic.Control.EndIf
+
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("ReadBinandLoc_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3745_Expl_BOM_Dsh.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.ReadBinandLoc.End
+
+Program.Sub.fgLoc_CheckClick.Start
+F.Intrinsic.Control.SetErrorHandler("fgLoc_CheckClick_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.sRet.Declare(String)
+V.Local.sGRet.Declare(String)
+
+'
+'
+
+'
+
+Function.Intrinsic.Control.BlockEvents
+'get text matrxi of row
+Gui.SS_Form1.fgLoc.ReadRow(v.Args.Key,v.Local.sGRet)
+F.Intrinsic.String.Split(v.Local.sGRet,"*!*",v.Local.sGRet)
+
+
+F.Intrinsic.Variable.UDTMultiSeek(v.uGlobal.uLoc!sLoc,v.Local.sGRet(1).Trim,v.Local.sRet)
+Function.Intrinsic.Control.If(V.Local.sRet.Trim,<>,"")
+	F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+	'better only be one
+	V.uGlobal.uLoc(v.Local.sRet(0))!iSel.Set(v.Local.sGRet(0))
+Function.Intrinsic.Control.EndIf
+
+
+Function.Intrinsic.Control.UnBlockEvents
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("fgLoc_CheckClick_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3745_Expl_BOM_Dsh.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	Function.Intrinsic.Control.CallSub(Ss_form1_unload)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.fgLoc_CheckClick.End
+
+Program.Sub.fgBin_CheckClick.Start
+F.Intrinsic.Control.SetErrorHandler("fgBin_CheckClick_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.sRet.Declare(String)
+V.Local.sGRet.Declare(String)
+
+'
+'
+'
+'
+
+Function.Intrinsic.Control.BlockEvents
+'get text matrxi of row
+Gui.SS_Form1.fgBin.ReadRow(v.Args.Key,v.Local.sGRet)
+F.Intrinsic.String.Split(v.Local.sGRet,"*!*",v.Local.sGRet)
+
+
+F.Intrinsic.Variable.UDTMultiSeek(v.uGlobal.uBin!sBin,v.Local.sGRet(1).Trim,v.Local.sRet)
+Function.Intrinsic.Control.If(V.Local.sRet.Trim,<>,"")
+	F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+	'better only be one
+	V.uGlobal.uBin(v.Local.sRet(0))!iSel.Set(v.Local.sGRet(0))
+Function.Intrinsic.Control.EndIf
+
+
+Function.Intrinsic.Control.UnBlockEvents
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("fgBin_CheckClick_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3745_Expl_BOM_Dsh.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.fgBin_CheckClick.End
+
+Program.Sub.fgDataView_MouseUP.Start
+F.Intrinsic.Control.SetErrorHandler("fgDataView_MouseUP_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+v.Local.sRow.Declare(String)
+v.Local.sParam.Declare(String)
+v.Local.sSQL.Declare(String)
+v.Local.sLoc.Declare(String)
+'When Clicking on the On Order column value we will bring the line item part up in supply and demand.
+'column 8
+Function.Intrinsic.Control.BlockEvents
+f.Intrinsic.Control.If(v.Args.mousecol,=,8)
+	f.Intrinsic.Control.If(v.Args.mouserow,>,0)
+		'bring up the supply and deman for that part read the rows
+		gui.SS_Form1.fgDataView.ReadRow(v.Args.mouserow,v.Local.sRow)
+		f.Intrinsic.Control.If(V.Local.sRow.Trim,<>,"")
+			f.Intrinsic.String.Split(V.Local.sRow,"*!*",V.Local.sRow)
+			'read the part column column 2
+'			have to get location
+			f.Intrinsic.String.Build("Select Location From V_Inventory_MSTR WHere Part = '{0}'",V.Local.sRow(2).Trim,V.Local.sSQL)
+			f.ODBC.Connection!conX.OpenLocalRecordsetRO("rst",V.Local.sSQL)
+			f.Intrinsic.Control.If(V.ODBC.conX!rst.EOF,=,True)
+				'meaning they don't have lo
+				v.Local.sLoc.Set("")
+			Function.Intrinsic.Control.Else
+				v.Local.sLoc.Set(V.ODBC.conX!rst.FieldValTrim!Location)
+			Function.Intrinsic.Control.EndIf
+			f.ODBC.conX!rst.Close
+			f.Intrinsic.String.Build("{0}!*!{1}",v.Local.sRow(2),v.Local.sLoc.trim,v.Local.sParam)
+			f.Global.General.CallWrapperSync(300010,v.Local.sParam)
+		Function.Intrinsic.Control.EndIf
+	Function.Intrinsic.Control.EndIf
+Function.Intrinsic.Control.EndIf
+Function.Intrinsic.Control.UnBlockEvents
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("fgDataView_MouseUP_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3745_Expl_BOM_Dsh.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	Function.Intrinsic.Control.CallSub(ss_form1_unload)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.fgDataView_MouseUP.End
+
+Program.Sub.txtPart_LostFocus.Start
+F.Intrinsic.Control.SetErrorHandler("txtPart_LostFocus_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+v.Local.sPart.Declare(String)
+v.Local.sSQL.Declare(string)
+
+
+Function.Intrinsic.Control.BlockEvents
+	v.Local.spart.Set(V.Screen.SS_Form1!txtPart.Text)
+	Function.Intrinsic.Control.If(V.Local.spart.Trim,<>,"")
+		Function.Intrinsic.Control.If(V.Screen.SS_Form1!chkBom.Value,=,1)
+			f.Intrinsic.String.Build("Select Description From V_BOM_ENG Where part = '{0}'",V.Local.sPart,V.Local.sSQL)
+		Function.Intrinsic.Control.ElseIf(V.Screen.SS_Form1!chkRouter.Value,=,1)
+			f.Intrinsic.String.Build("Select Description_ROUTER AS DESCRIPTION From V_Router_Header Where Router = '{0}'",V.Local.sPart,V.Local.sSQL)
+		Function.Intrinsic.Control.Else
+			f.Intrinsic.String.Build("Select Description From V_Inventory_MSTR Where part = '{0}'",V.Local.sPart,V.Local.sSQL)
+		Function.Intrinsic.Control.EndIf
+
+		f.ODBC.Connection!conX.OpenLocalRecordsetRO("rst",V.local.sSQL)
+		Function.Intrinsic.Control.If(V.ODBC.conX!rst.EOF,=,False)
+			gui.SS_Form1.txtDesc.Text(V.ODBC.conX!rst.FieldValTrim!Description)
+		Function.Intrinsic.Control.Else
+			GUI.SS_Form1.txtDesc.Text("")
+		Function.Intrinsic.Control.EndIf
+		f.ODBC.conX!rst.Close
+	Function.Intrinsic.Control.Else
+		GUI.SS_Form1.txtDesc.Text("")
+	Function.Intrinsic.Control.EndIf
+
+Function.Intrinsic.Control.UnBlockEvents
+
+
+
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("txtPart_LostFocus_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3745_Expl_BOM_Dsh.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	Function.Intrinsic.Control.CallSub(ss_form1_unload)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.txtPart_LostFocus.End
+
+Program.Sub.txtRev_LostFocus.Start
+F.Intrinsic.Control.SetErrorHandler("txtRev_LostFocus_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+
+
+V.Local.sPart.Declare(String)
+V.Local.sSQL.Declare(String)
+
+
+Function.Intrinsic.Control.BlockEvents
+	F.Intrinsic.String.GSSPartString(V.screen.SS_Form1!txtPart.text,V.Screen.SS_Form1!txtRev.text,V.Local.sPart)
+
+	Function.Intrinsic.Control.If(V.Local.spart.Trim,<>,"")
+		Function.Intrinsic.Control.If(V.Screen.SS_Form1!chkBom.Value,=,1)
+			F.Intrinsic.String.Build("Select Description From V_BOM_ENG Where part = '{0}'",V.Local.sPart,V.Local.sSQL)
+		Function.Intrinsic.Control.ElseIf(V.Screen.SS_Form1!chkRouter.Value,=,1)
+			F.Intrinsic.String.Build("Select Description_router as description From V_Router_Header Where Router = '{0}'",V.Local.sPart,V.Local.sSQL)
+		Function.Intrinsic.Control.Else
+			F.Intrinsic.String.Build("Select Description From V_Inventory_MSTR Where part = '{0}'",V.Local.sPart,V.Local.sSQL)
+		Function.Intrinsic.Control.EndIf
+
+		F.ODBC.Connection!conX.OpenLocalRecordsetRO("rst",V.local.sSQL)
+		Function.Intrinsic.Control.If(V.ODBC.conX!rst.EOF,=,False)
+			Gui.SS_Form1.txtDesc.Text(V.ODBC.conX!rst.FieldValTrim!Description)
+		Function.Intrinsic.Control.Else
+			Gui.SS_Form1.txtDesc.Text("")
+		Function.Intrinsic.Control.EndIf
+		F.ODBC.conX!rst.Close
+	Function.Intrinsic.Control.Else
+		Gui.SS_Form1.txtDesc.Text("")
+	Function.Intrinsic.Control.EndIf
+
+
+Function.Intrinsic.Control.UnBlockEvents
+
+
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("txtRev_LostFocus_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3745_Expl_BOM_Dsh.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	Function.Intrinsic.Control.CallSub(Ss_form1_unload)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.txtRev_LostFocus.End
+
+Program.Sub.cmdExport_Click.Start
+F.Intrinsic.Control.SetErrorHandler("cmdExport_Click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.sFile.Declare(String)
+V.Local.iD.Declare(Long)
+V.Local.bEx.Declare(Boolean)
+V.Local.iHNDL.Declare(Long)
+Function.Intrinsic.Control.BlockEvents
+F.Intrinsic.UI.InvokeWaitDialog("Exporting...")
+'excel or oo calcl
+F.Automation.MSExcel.CheckPresence(v.Local.bEx)
+
+Function.Intrinsic.Control.If(v.Local.bEx,=,False)
+	'try oo calc
+	F.Automation.OOGeneral.CheckPresence(v.Local.bEx)
+	Function.Intrinsic.Control.If(v.Local.bEx,=,False)
+		'Unable to export... they missing excel or open office equivalent.
+		F.Intrinsic.UI.Msgbox("Microsoft Office or Open Office Equivalent MUST be Installed.")
+		Function.Intrinsic.Control.UnBlockEvents
+		F.Intrinsic.UI.CloseWaitDialog
+		F.Intrinsic.Control.ExitSub
+	Function.Intrinsic.Control.Else
+		V.Local.iD.Set(0)
+		F.Intrinsic.String.Build("{0}\{1}_Export.ods",V.System.Temp,V.Global.sPartRev.Trim,V.Local.sFile)
+	Function.Intrinsic.Control.EndIf
+Function.Intrinsic.Control.Else
+	V.Local.iD.Set(1)
+	F.Intrinsic.String.Build("{0}\{1}_Export.xlsx",V.System.Temp,V.Global.sPartRev.Trim,V.Local.sFile)
+Function.Intrinsic.Control.EndIf
+
+F.Intrinsic.File.Exists(v.Local.sFile,v.Local.bEx)
+F.Intrinsic.Control.If(v.Local.bEx,=,True)
+	F.Intrinsic.File.DeleteFile(V.Local.sFile)
+Function.Intrinsic.Control.EndIf
+Gui.SS_Form1.fgDataView.Export(v.Local.sFile,v.Local.iD)
+
+'open it up
+F.Intrinsic.File.Exists(v.Local.sFile,v.Local.bEx)
+F.Intrinsic.Control.If(v.Local.bEx,=,False)
+	'crap it didn't create something went wrong? (SHRUG)
+	F.Intrinsic.UI.Msgbox("Export File Unable to be Created....")
+	Function.Intrinsic.Control.UnBlockEvents
+	F.Intrinsic.UI.CloseWaitDialog
+	F.Intrinsic.Control.ExitSub
+Function.Intrinsic.Control.EndIf
+F.Intrinsic.File.GetHandle(v.Local.iHNDL)
+F.Intrinsic.Task.ShellExec(v.Local.iHNDL,"OPEN",v.Local.sFile,"","",1)
+F.Intrinsic.UI.CloseWaitDialog
+Function.Intrinsic.Control.UnBlockEvents
+
+
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmdExport_Click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3745_Expl_BOM_Dsh.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.cmdExport_Click.End
+
+Program.Sub.txtPart_GotFocus.Start
+gui.SS_Form1.txtPart.SelectAll
+Program.Sub.txtPart_GotFocus.End
+
+Program.Sub.txtRev_GotFocus.Start
+gui.SS_Form1.txtRev.SelectAll
+Program.Sub.txtRev_GotFocus.End
+
+Program.Sub.txtQty_GotFocus.Start
+Gui.SS_Form1.txtQty.SelectAll
+
+Program.Sub.txtQty_GotFocus.End
+
+Program.Sub.cmdprint_click.Start
+F.Intrinsic.Control.SetErrorHandler("cmdprint_click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+'display the form
+Gui.Form1..Visible(true)
+
+
+F.Intrinsic.Control.Label("cmdprint_click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3745_Expl_BOM_Dsh.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(Ss_form1_unload)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.cmdprint_click.End
+
+Program.Sub.form1_unload.Start
+F.Intrinsic.Control.SetErrorHandler("form1_unload_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+'close the form
+Gui.Form1..Visible(false)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("form1_unload_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3745_Expl_BOM_Dsh.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(Ss_form1_unload)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.form1_unload.End
+
+Program.Sub.cmdprint2_click.Start
+F.Intrinsic.Control.SetErrorHandler("cmdprint_click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.irows.Declare(Long)
+V.Local.i.Declare(Long)
+V.Local.srow.Declare(String)
+V.Local.spart.Declare(String)
+V.Local.sbin.Declare(String)
+V.Local.sbindesc.Declare(String)
+V.Local.sloc.Declare(String)
+V.Local.iloccount.Declare(Long)
+V.Local.ibinloop.declare(Long)
+V.Local.ibinrows.Declare(Long)
+V.Local.sbinrows.Declare(String)
+V.Local.ilocloop.Declare(Long)
+V.Local.ilocrows.Declare(Long)
+V.Local.slocdesc.Declare(String)
+V.Local.slocrows.Declare(String)
+V.Local.ibincount.Declare(Long)
+V.Local.iloccount.Set(0)
+V.Local.ibincount.Set(0)
+V.Local.sbomrouter.Declare(String)
+V.Local.sqtytobuild.Declare(String)
+V.Local.stype.Declare(String)
+V.Local.srev.Declare(String)
+V.Local.iredimcount.Declare(Long)
+V.Local.fspare.Declare(Float)
+V.Local.ssql.Declare(String)
+V.Local.sreport.Declare(String)
+V.Local.srec.Declare(String)
+V.Local.ssql2.Declare(String)
+V.Local.irunid.Declare(Long)
+V.Local.ireportid.Declare(Long)
+V.Local.sfilepath.Declare(String)
+V.Local.ilog.Declare(Long)
+V.Local.ireport.Declare(Long)
+V.Local.icounter.Declare(Long)
+V.Local.icalc.Declare(Long)
+V.Local.icounter.Set(0)
+V.Local.spoqty.Declare(String)
+V.Local.ssqlpoqty.Declare(String)
+
+V.Local.spoqtysql.Declare(String)
+V.Local.sponum.Declare(String)
+V.Local.ispare.Declare(Long)
+V.Local.bFirst.Declare(Boolean)
+V.Local.dFrom.Declare(Date)
+V.Local.iDays.Declare(Long)
+V.Local.fReq.Declare(Float)
+V.Local.sParamName.Declare(String)
+V.Local.sParamValue.Declare(String)
+
+
+F.Intrinsic.String.Build("{0}\Custom\GCG_3745_Expl_BOM_Dsh.rpt",V.Caller.BusintDir,V.Local.sfilepath)
+
+F.global.BI.InitializeReport("BOM/Router Report",V.local.sfilepath,V.Local.ireportid)
+
+F.Global.BI.getrunid(V.Local.irunid)
+
+F.Global.BI.startlogging(V.Local.irunid,V.Local.ireportid,-1,"",V.Local.ilog)
+
+'force the user to select a report type
+F.Intrinsic.Control.If(V.Screen.Form1!dropdownlist1.Text,=,"")
+	F.Intrinsic.UI.Msgbox("Please select the a report type")
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.EndIf
+
+'force the user to select a level type
+F.Intrinsic.Control.If(V.Screen.Form1!ddlLevel.Text,=,"")
+	F.Intrinsic.UI.Msgbox("Please select the print level type")
+	F.Intrinsic.Control.ExitSub
+'if multi-Level is clicked make sure the days have something in it.
+F.Intrinsic.Control.Else
+	F.Intrinsic.Control.If(V.Screen.Form1!ddlLevel.Text,=,"Multi-Level")
+		F.Intrinsic.Control.If(V.Screen.Form1!txtDays.Text,=,"")
+			F.Intrinsic.UI.Msgbox("Please enter the past invoice date range")
+			F.Intrinsic.Control.ExitSub
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+
+'set the report type
+F.Intrinsic.Control.If(V.Screen.Form1!dropdownlist1.Text,=,"Detail")
+	F.Intrinsic.Control.If(V.Screen.Form1!ddlLevel.Text,=,"Multi-Level")
+		V.Local.sreport.Set("Detail Multi")
+	F.Intrinsic.Control.ElseIf(V.Screen.Form1!ddlLevel.Text,=,"Single Level")
+		V.Local.sreport.Set("Detail Single")
+	F.Intrinsic.Control.Else
+		V.Local.sreport.Set("Detail")
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.Else
+	F.Intrinsic.Control.If(V.Screen.Form1!ddlLevel.Text,=,"Multi-Level")
+		V.Local.sreport.Set("Summary Multi")
+	F.Intrinsic.Control.ElseIf(V.Screen.Form1!ddlLevel.Text,=,"Single Level")
+		V.Local.sreport.Set("Summary Single")
+	F.Intrinsic.Control.Else
+		V.Local.sreport.Set("Summary")
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+
+Gui.Form1..Visible(false)
+
+'display wait dialog
+F.Intrinsic.UI.InvokeWaitDialog("Generating Report","Please Wait")
+
+'set the type based on whetehr router or bom was checked
+F.Intrinsic.Control.If(V.Screen.SS_Form1!chkBom.Value,=,1)
+	V.Local.sType.Set("BOM")
+F.Intrinsic.Control.ElseIf(V.Screen.SS_Form1!chkRouter.Value,=,1)
+	V.Local.stype.Set("Router")
+F.Intrinsic.Control.EndIf
+
+'set the part and rev and then combine them
+V.local.spart.set(V.Screen.SS_Form1!txtPart.Text)
+V.Local.srev.Set(V.Screen.SS_Form1!txtRev.Text)
+F.Intrinsic.String.Concat(V.Local.spart,V.Local.srev,V.Local.sbomrouter)
+
+'check to see if all bins was checked
+F.Intrinsic.Control.If(V.Screen.SS_Form1!chkAllBins.Value,=,1)
+	V.Local.sbin.Set("Mult")
+F.Intrinsic.Control.Else
+	'get the number of rows in the bin
+	F.Intrinsic.Math.sub(V.Screen.SS_Form1!fgBin.Rows,1,V.Local.ibinrows)
+	'loop through the bin flexgrid and see which ones are checked
+	F.Intrinsic.Control.For(V.Local.ibinloop,1,V.Local.ibinrows,1)
+		'check to see if multiple bins were selected if so set the bin as Mult otherwise set bin as the bin that was checked
+		F.Intrinsic.Control.If(V.Local.ibincount,>,1)
+			V.Local.sbin.Set("Mult")
+		F.Intrinsic.Control.Else
+			Gui.SS_Form1.fgBin.ReadRow(V.Local.ibinloop,V.Local.sbinrows)
+			F.Intrinsic.String.Split(V.Local.sbinrows,"*!*",V.Local.sbinrows)
+			F.Intrinsic.Control.If(V.Local.sbinrows(0),=,1)
+				F.Intrinsic.math.Add(V.Local.ibincount,1,V.Local.ibincount)
+				F.Intrinsic.Control.If(V.Local.ibincount,>,1)
+					V.Local.sbin.Set("Mult")
+				F.Intrinsic.Control.Else
+					V.Local.sbindesc.Set(V.Local.sbinrows(2))
+					F.Intrinsic.String.Build("{0}-{1}",V.local.sbinrows(1),V.local.sbinrows(2),V.local.sbin)
+'					V.Local.sbin.Set(V.Local.sbinrows(1))
+				F.intrinsic.control.endif
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.Next(V.Local.ibinloop)
+F.Intrinsic.Control.EndIf
+
+'check to see if all loc was checked
+F.Intrinsic.Control.If(V.Screen.SS_Form1!chkAllLoc.Value,=,1)
+	V.Local.sloc.Set("Mult")
+F.Intrinsic.Control.Else
+	'get the number of rows for the loc
+	F.Intrinsic.Math.sub(V.Screen.SS_Form1!fgLoc.Rows,1,V.Local.ilocrows)
+	'loop through the loc flexgrid and see which ones are checked
+	F.Intrinsic.Control.For(V.Local.ilocloop,1,V.Local.ilocrows,1)
+	'check to see if multiple locs were selected if so set the loc as Mult otherwise set loc as the loc that was checked
+	F.Intrinsic.Control.If(V.Local.iloccount,>,1)
+		V.Local.sloc.Set("Mult")
+	F.Intrinsic.Control.Else
+		Gui.SS_Form1.fgloc.ReadRow(V.Local.ilocloop,V.Local.slocrows)
+		F.Intrinsic.String.Split(V.Local.slocrows,"*!*",V.Local.slocrows)
+		F.Intrinsic.Control.If(V.Local.slocrows(0),=,1)
+			F.Intrinsic.math.Add(V.Local.iloccount,1,V.Local.iloccount)
+			F.Intrinsic.Control.If(V.Local.iloccount,>,1)
+				V.Local.sloc.Set("Mult")
+			F.Intrinsic.Control.Else
+				V.Local.slocdesc.Set(V.Local.slocrows(2))
+				F.Intrinsic.String.Build("{0}-{1}",V.local.slocrows(1),V.local.slocrows(2),V.local.sloc)
+'				V.Local.sbin.Set(V.Local.sbinrows(1))
+			F.intrinsic.control.endif
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.Next(V.Local.ilocloop)
+F.Intrinsic.Control.EndIf
+
+'get the number of rows
+F.intrinsic.math.sub(V.screen.SS_Form1!fgDataView.Rows,1,V.Local.irows)
+
+'F.Intrinsic.Math.Add(V.Local.irows,1,V.Local.iredimcount)
+V.Local.iredimcount.Set(V.Local.irows)
+
+V.uGlobal.uReport.Redim(-1,-1)
+V.uGlobal.uReport.Redim(1,V.Local.iredimcount)
+V.uGlobal.uAdditional.Redim(-1,-1)
+V.uGlobal.uAdditional.Redim(1,1)
+
+'F.Intrinsic.Control.if(V.Local.sreport,=,"Detail")
+F.Intrinsic.Control.If(V.Screen.Form1!dropdownlist1.Text,=,"Detail")
+	V.uGlobal.uAdditional.Redim(-1,-1)
+
+F.Intrinsic.Control.EndIf
+
+'V.Local.i.Set(1)
+V.Local.iC.Declare(Long)
+'loop through the rows
+F.Intrinsic.Control.For(V.Local.i,1,V.Local.irows,1)
+	'read/split the row
+	V.Local.srow.Redim(0,0)
+	V.Local.srow.Set("")
+	Gui.SS_Form1.fgDataView.ReadRow(V.Local.i,V.Local.srow)
+	F.Intrinsic.String.Split(V.Local.srow,"*!*",V.Local.srow)
+	V.Local.srow.RedimPreserve(0,9)
+	'begin setting the fields in the UDT
+	V.uGlobal.uReport(v.Local.i)!TYPE.Set(V.Local.stype)
+	V.uGlobal.uReport(v.Local.i)!HEADERPART.Set(V.Local.sbomrouter)
+	V.uGlobal.uReport(v.Local.i)!HEADERQTY.Set(V.Screen.SS_Form1!txtQty.Text)
+	V.uGlobal.uReport(v.Local.i)!HEADERLOC.Set(V.Local.sloc)
+	V.uGlobal.uReport(v.Local.i)!HEADERBIN.Set(V.Local.sbin)
+
+	V.uGlobal.uReport(v.Local.i)!LINE.Set(V.Local.srow(0))
+	V.uGlobal.uReport(v.Local.i)!LEVEL.Set(V.Local.srow(1))
+	V.uGlobal.uReport(v.Local.i)!PART.Set(V.Local.srow(2).trim)
+	V.uGlobal.uReport(v.Local.i)!DESC.Set(V.Local.srow(3))
+	V.uGlobal.uReport(v.Local.i)!BOMQTY.Set(V.Local.srow(6))
+	V.uGlobal.uReport(v.Local.i)!ONHAND.Set(V.Local.srow(7))
+	F.Intrinsic.Control.If(V.Local.srow(9).Trim,=,".00")
+		V.uGlobal.uReport(v.Local.i)!BOMNET.Set(V.Local.srow(6))
+	F.Intrinsic.Control.Elseif(V.Local.srow(9).Trim,<>,".00")
+		F.Intrinsic.math.Sub(V.Local.srow(7).Trim,V.Local.srow(6).Trim,V.Local.icalc)
+		V.uGlobal.uReport(v.Local.i)!BOMNET.Set(V.Local.icalc)
+		V.Local.icalc.Set(0)
+	F.Intrinsic.Control.EndIf
+
+	'get the qty received into inspection but not yet placed in inventory
+	F.Intrinsic.String.Build("SELECT ISNULL(SUM(QTY_RECD_NOT_INSP),0) AS NOT_INSP FROM V_PO_LINES WHERE PART = '{0}' ",V.uGlobal.uReport(V.Local.i)!PART,V.Local.ssql)
+	F.ODBC.Connection!conX.OpenLocalRecordsetRO("rst",V.Local.ssql)
+	F.Intrinsic.Control.If(V.ODBC.conX!rst.EOF,=,False)
+		V.uGlobal.uReport(v.Local.i)!NOT_INSP.Set(V.ODBC.conX!rst.FieldValFloat!NOT_INSP)
+	F.Intrinsic.Control.EndIf
+	F.ODBC.conX!rst.Close
+
+	'set the req field, onhand + inspection - bom req
+	V.Local.fReq.Set(0)
+	F.Intrinsic.Math.Add(V.uGlobal.uReport(v.Local.i)!NOT_INSP,V.uGlobal.uReport(v.Local.i)!ONHAND,V.Local.fReq)
+	F.Intrinsic.Math.Sub(V.Local.fReq,V.uGlobal.uReport(v.Local.i)!BOMQTY,V.Local.fReq)
+	V.uGlobal.uReport(v.Local.i)!REQUIRED.Set(V.Local.fReq.String)
+
+
+	F.Intrinsic.Control.If(V.Screen.Form1!dropdownlist1.Text,=,"Summary")
+
+		F.Intrinsic.String.Build("SELECT top 1 PURCHASE_ORDER, NAME_VENDOR, ORIG_DUE_DATE, RECORD_NO, DATE_DUE_LINE  from V_PO_LINES join V_VENDOR_MASTER on V_PO_LINES.VENDOR = V_VENDOR_MASTER.VENDOR where PART = '{0}' and V_PO_LINES.PURCHASE_ORDER <> '' and V_PO_LINES.FLAG_RECV_CLOSE <> 'Y' and ORIG_DUE_DATE <> '1900-01-01'  order by DATE_DUE_LINE",V.uGlobal.uReport(v.Local.i)!PART.Trim,V.local.ssql)
+		F.ODBC.Connection!conX.OpenLocalRecordsetRO("rst",V.Local.ssql)
+		F.Intrinsic.Control.If(V.ODBC.conX!rst.EOF,=,False)
+			V.uGlobal.uAdditional.RedimPreserve(1,V.Local.i)
+			V.uGlobal.uAdditional(v.Local.i)!VENDOR.set(V.ODBC.conX!rst.FieldValTrim!NAME_VENDOR)
+			V.uGlobal.uAdditional(v.Local.i)!PART.Set(V.Local.srow(2))
+			V.uGlobal.uAdditional(v.Local.i)!ORIG_DUE_DATE.Set(V.ODBC.conX!rst.FieldValTrim!ORIG_DUE_DATE)
+			V.uGlobal.uAdditional(v.Local.i)!PO.Set(V.ODBC.conX!rst.FieldValTrim!PURCHASE_ORDER)
+			V.local.sponum.Set(V.ODBC.conX!rst.FieldValTrim!PURCHASE_ORDER)
+'			V.uGlobal.uAdditional(v.Local.i)!DUE_DATE.Set(V.ODBC.conX!rst.FieldValTrim!DATE_DUE_LINE)
+			V.Local.srec.Set(V.ODBC.conX!rst.FieldValTrim!RECORD_NO)
+			V.uGlobal.uReport(V.Local.i)!PO_NUM.Set(V.ODBC.conX!rst.FieldValTrim!PURCHASE_ORDER)
+			
+			F.Intrinsic.String.Build("Select MAX(DATE_DUE) as DATE_DUE, DATE_ORDER from V_PO_HEADER where PURCHASE_ORDER = '{0}'  group by DATE_ORDER ",V.uGlobal.uAdditional(v.Local.i)!PO,V.Local.ssql2)
+			F.ODBC.Connection!conX.OpenLocalRecordsetRO("rst2",V.Local.ssql2)
+			F.Intrinsic.Control.If(V.ODBC.conX!rst2.EOF,=,False)
+				V.uglobal.uAdditional(v.local.i)!DUE_DATE.set(V.odbc.conx!rst2.FieldValTrim!DATE_DUE)
+				V.uGlobal.uAdditional(v.Local.i)!DATE_ORDER.Set(V.ODBC.conX!rst2.FieldValTrim!DATE_ORDER)
+			F.Intrinsic.control.EndIf
+			F.ODBC.conX!rst2.Close
+
+
+		F.Intrinsic.String.Build("Select SUM(QTY_ORDER) as QTY_ORDER from V_PO_LINES where PURCHASE_ORDER = '{0}' AND PART = '{1}' ",V.uGlobal.uAdditional(v.Local.i)!PO,V.uGlobal.uAdditional(V.Local.i)!PART,V.Local.spoqtysql)
+		F.ODBC.Connection!conX.OpenLocalRecordsetRO("rst3",V.Local.spoqtysql)
+		F.Intrinsic.Control.If(V.ODBC.conX!rst3.EOF,=,False)
+			V.uGlobal.uReport(v.Local.i)!ONORDER.Set(V.odbc.conX!rst3.fieldvaltrim!QTY_ORDER)
+		F.Intrinsic.Control.EndIf
+		F.ODBC.conX!rst3.Close
+
+		F.Intrinsic.Math.Add(V.uGlobal.uReport(v.Local.i)!ONORDER,V.Local.fReq,V.Local.fspare)
+		V.uGlobal.uReport(v.Local.i)!SPARE.Set(V.Local.fspare)
+		F.Intrinsic.Control.EndIf
+		F.ODBC.conX!rst.Close
+		
+	F.Intrinsic.Control.ElseIf(V.Screen.Form1!dropdownlist1.Text,=,"Detail")
+
+		F.Intrinsic.String.Build("SELECT V_PO_HEADER.PURCHASE_ORDER as PO,  PART, V_PO_LINES.QTY_ORDER as ONORDER, ORIG_DUE_DATE, NAME_VENDOR as VENDOR, V_PO_HEADER.DATE_ORDER, V_PO_HEADER.DATE_DUE as DUE_DATE from V_PO_HEADER join V_PO_LINES on V_PO_HEADER.PURCHASE_ORDER = V_PO_LINES.PURCHASE_ORDER join V_VENDOR_MASTER on V_PO_HEADER.VENDOR = V_VENDOR_MASTER.VENDOR  where PART = '{0}' and V_PO_LINES.PURCHASE_ORDER <> '{1}' and V_PO_LINES.FLAG_RECV_CLOSE  <> '{2}' and ORIG_DUE_DATE <> '{3}' and DUE_DATE <> '{4}'  ORDER BY DUE_DATE ASC",V.uGlobal.uReport(v.Local.i)!PART.Trim,"","Y","1900-01-01","1900-01-01","",V.local.ssql)
+
+		F.ODBC.Connection!conX.OpenLocalRecordsetRO("rst",V.Local.ssql)
+			
+		F.Intrinsic.Control.If(V.ODBC.conX!rst.EOF,=,False)
+
+		F.Intrinsic.Variable.LoadUDTFromRecordset("conX","rst","v.uGlobal.uAdditional",True)
+		F.Intrinsic.Control.EndIf
+'		F.Intrinsic.Variable.LoadUDTFromRecordset("conx","rst","V.uGlobal.uAdditional",True)
+		F.ODBC.conX!rst.Close
+
+'		V.Local.bFirst.Set(True)
+		V.Local.fspare.Set(0)
+		F.Intrinsic.Control.If(V.uGlobal.uAdditional.UBound,<>,-1)
+		F.Intrinsic.Control.For(V.Local.ispare,V.uGlobal.uAdditional.LBound,V.uGlobal.uAdditional.UBound,1)
+			F.Intrinsic.Control.If(V.uGlobal.uReport(v.Local.i)!PART,=,V.uGlobal.uAdditional(v.Local.ispare)!PART)
+				F.Intrinsic.Math.Add(V.uGlobal.uAdditional(V.Local.ispare)!ONORDER,V.Local.fReq,V.Local.fReq)
+				V.uGlobal.uAdditional(V.Local.ispare)!SPARE.Set(V.Local.fReq)
+			F.Intrinsic.Control.EndIf
+			
+			
+		F.Intrinsic.Control.Next(V.Local.ispare)
+		F.Intrinsic.Control.EndIf
+
+
+
+	F.Intrinsic.Control.EndIf
+
+	'If multi-level was selected then calculate prior use
+'	F.Intrinsic.Control.If(V.Screen.Form1!ddlLevel.Text,=,"Multi-Level")
+		'get the total quantity of the subcomponent invoiced in the past x days
+		'srow(2) is the component part from the line
+		'set the between dates
+		V.Local.iDays.Set(V.Screen.Form1!txtDays.Text)
+		F.Intrinsic.Math.Mult(V.Local.iDays,-1,V.Local.iDays)
+		F.Intrinsic.Date.DateAdd("D",V.Local.iDays,V.Ambient.Date,V.Local.dFrom)
+		F.Intrinsic.String.Build("SELECT ISNULL(SUM(QTY_SHIPPED),0) AS PRIOR_USE FROM V_ORDER_HIST_LINE WHERE PART = '{0}' AND DATE_INVOICE BETWEEN '{1}' AND '{2}' ",V.uGlobal.uReport(V.Local.i)!PART.Trim,v.Local.dFrom.PervasiveDate,v.Ambient.Date.PervasiveDate,v.Local.ssql)
+		F.ODBC.Connection!conX.OpenLocalRecordsetRO("rst",V.Local.ssql)
+		F.Intrinsic.Control.If(V.ODBC.conX!rst.EOF,=,False)
+			V.uGlobal.uReport(v.Local.i)!PRIOR_USE_QTY.Set(V.ODBC.conX!rst.FieldValFloat!PRIOR_USE)
+		F.Intrinsic.Control.EndIf
+		F.ODBC.conX!rst.Close
+
+
+
+
+
+F.Intrinsic.Control.Next(V.Local.i)
+
+
+'open the a connection and delete everything from the 2 custom tables
+'F.ODBC.Connection!conX.OpenRecordsetRW("rst","GCG_3745_Expl_BOMDsh")
+F.Intrinsic.String.Concat("DELETE FROM ","GCG_3745_Expl_BOMDsh",V.Local.ssql)
+F.ODBC.Connection!conX.Execute(V.Local.ssql)
+'F.ODBC.Conx!rst.Close
+
+'F.Intrinsic.Variable.SetUDTFieldReference(V.uGlobal.uReport!NOT_INSP,"INSP")
+'F.Intrinsic.Variable.SetUDTFieldReference(V.uGlobal.uReport!PRIOR_USE_QTY,"PRIOR_USE")
+F.ODBC.Connection!conX.OpenRecordsetRW("rst","GCG_3745_Expl_BOMDsh")
+F.Intrinsic.Variable.saveudttorecordset("conx","rst","v.uglobal.uReport")
+F.ODBC.Conx!rst.Close
+'F.Intrinsic.Variable.SetUDTFieldReference(V.uGlobal.uReport!NOT_INSP,"")
+'F.Intrinsic.Variable.SetUDTFieldReference(V.uGlobal.uReport!PRIOR_USE_QTY,"")
+
+'F.ODBC.Connection!conX.OpenRecordsetRW("rst","GCG_3745_Add_Data")
+F.Intrinsic.String.Concat("DELETE FROM ","GCG_3745_Add_Data",V.Local.ssql)
+F.ODBC.Connection!conX.Execute(V.Local.ssql)
+'F.ODBC.conX!rst.Close
+
+F.Intrinsic.Variable.SetUDTFieldReference(V.uGlobal.uAdditional!SPARE,"SPARE")
+'F.Intrinsic.Variable.SetUDTFieldReference(V.uGlobal.uAdditional!ONORDER,"ONORDER")
+F.ODBC.Connection!conX.OpenRecordsetRW("rst","GCG_3745_Add_Data")
+F.Intrinsic.Control.If(V.uGlobal.uAdditional.UBound,<>,-1)
+F.Intrinsic.Variable.UDTMultiQuickSort(V.uGlobal.uAdditional!DUE_DATE,True)
+F.Intrinsic.Variable.saveudttorecordset("conx","rst","v.uglobal.uAdditional")
+F.Intrinsic.Control.EndIf
+F.ODBC.conX!rst.Close
+
+F.Intrinsic.Variable.SetUDTFieldReference(V.uGlobal.uAdditional!SPARE,"")
+'F.Intrinsic.Variable.SetUDTFieldReference(V.uGlobal.uAdditional!ONORDER,"ONORDER")
+
+F.Intrinsic.UI.CloseWaitDialog
+
+F.Global.BI.stoplogging(V.Local.ilog)
+
+V.Local.sParamName.Set("Selection*!*Days")
+'V.Local.sParamValue.Set(V.Local.sreport)
+F.Intrinsic.String.Build("{0}*!*{1}",V.Local.sreport,V.Screen.Form1!txtDays.Text,V.Local.sParamValue)
+
+F.Global.BI.RunReportPreProcessor(V.Local.irunid,V.Local.ilog,V.Local.sParamName,V.Local.sParamValue,"",16,True,"",-1,"",-1,"","",V.Local.ireport)
+
+
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmdprint_click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3745_Expl_BOM_Dsh.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(Ss_form1_unload)
+Function.Intrinsic.Control.EndIf
+
+Program.Sub.cmdprint2_click.End
+
+Program.Sub.ddllevel_click.Start
+F.Intrinsic.Control.SetErrorHandler("ddllevel_click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+'if multi-level then enable the fields
+'F.Intrinsic.Control.If(V.Screen.Form1!ddlLevel.Text,=,"Multi-Level")
+	Gui.Form1.lbl1.Visible(true)
+	Gui.Form1.lbl2.Visible(true)
+	Gui.Form1.txtDays.Visible(true)
+	Gui.Form1.txtDays.Text("90")
+'F.Intrinsic.Control.Else
+'	Gui.Form1.lbl1.Visible(false)
+'	Gui.Form1.lbl2.Visible(false)
+'	Gui.Form1.txtDays.Visible(false)
+'	Gui.Form1.txtDays.Text("")
+'F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("ddllevel_click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3745_Expl_BOM_Dsh.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(Ss_form1_unload)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.ddllevel_click.End
+
+Program.Sub.txtqty_change.Start
+F.Intrinsic.Control.SetErrorHandler("txtqty_change_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+'lock the print button and disable the grid
+Gui.SS_Form1.cmdPrint.Enabled(False)
+Gui.SS_Form1.fgDataView.Visible(False)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("txtqty_change_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3745_Expl_BOM_Dsh.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(Ss_form1_unload)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.txtqty_change.End
+
+Program.Sub.Comments.Start
+${$0$}$$}$$}$12:00:00 AM$}$False
+${$5$}$2.0.0.0$}$2
+${$6$}$wnichols$}$20210713165924412$}$h3jCD/nJ6bE/cd0Fx7GbYZBAEscRS8LBO2yOYISFOEnqtqGA8qYqL7AxKx1DoBV1d7dyQE1JNnd7KFj2odnHOw==
+Program.Sub.Comments.End
